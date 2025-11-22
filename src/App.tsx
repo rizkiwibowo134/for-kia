@@ -79,11 +79,11 @@ const BACKGROUND_FADE_START = Math.max(
 const TYPED_LINES = [
   "> sazkia",
   "...",
-  "> today is your birthday",
+  "> today is a spesial day",
   "...",
-  "> so i made you this computer program",
+  "> because it's your birthday",
   "...",
-  "٩(◕‿◕)۶ ٩(◕‿◕)۶ ٩(◕‿◕)۶"
+  "i have a program for you(◕‿◕)"
 ];
 const TYPED_CHAR_DELAY = 100;
 const POST_TYPING_SCENE_DELAY = 1000;
@@ -539,7 +539,7 @@ export default function App() {
         </div>
       </div>
       {hasAnimationCompleted && isCandleLit && (
-        <div className="hint-overlay">press space to blow out the candle</div>
+        <div className="hint-overlay">tekan sepasi buat tiup lilinnya</div>
       )}
       <Canvas
         gl={{ alpha: true }}
