@@ -539,7 +539,7 @@ export default function App() {
         </div>
       </div>
       {hasAnimationCompleted && isCandleLit && (
-        <div className="hint-overlay">tekan sepasi buat tiup lilinnya</div>
+        <div className="hint-overlay">tekan spasi buat tiup lilinnya ya cantik</div>
       )}
       <Canvas
         gl={{ alpha: true }}
