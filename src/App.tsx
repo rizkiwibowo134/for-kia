@@ -77,13 +77,10 @@ const BACKGROUND_FADE_START = Math.max(
 );
 
 const TYPED_LINES = [
-  "> sazkia",
-  "...",
+  "> sazkia",  
   "> today is a spesial day",
-  "...",
   "> because it's your birthday",
-  "...",
-  "i have a program for you(◕‿◕)"
+  "i have a program for you..."
 ];
 const TYPED_CHAR_DELAY = 100;
 const POST_TYPING_SCENE_DELAY = 1000;
@@ -506,6 +503,36 @@ export default function App() {
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [hasStarted, hasAnimationCompleted, isCandleLit, playBackgroundMusic]);
+
+  useEffect(() => {
+  let lastTap = 0;
+
+  const handleDoubleTap = () => {
+    const now = Date.now();
+    const interval = now - lastTap;
+
+    if (interval < 300) {
+      if (!hasStarted) {
+        playBackgroundMusic();
+        setHasStarted(true);
+        return;
+      }
+
+      if (hasAnimationCompleted && isCandleLit) {
+        setIsCandleLit(false);
+        setFireworksActive(true);
+      }
+    }
+
+    lastTap = now;
+  };
+
+  window.addEventListener("touchstart", handleDoubleTap);
+
+  return () => {
+    window.removeEventListener("touchstart", handleDoubleTap);
+  };
+}, [hasStarted, hasAnimationCompleted, isCandleLit, playBackgroundMusic]);
 
   const handleCardToggle = useCallback((id: string) => {
     setActiveCardId((current) => (current === id ? null : id));
