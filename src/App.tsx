@@ -80,7 +80,7 @@ const TYPED_LINES = [
   "> sazkia",  
   "> today is a spesial day",
   "> because it's your birthday",
-  "i have a program for you..."
+  "> i have a program for you🫣..."
 ];
 const TYPED_CHAR_DELAY = 100;
 const POST_TYPING_SCENE_DELAY = 1000;
